@@ -79,11 +79,12 @@ fn activate(application: &gtk4::Application, message: &Option<String>, command: 
 
     let label = gtk4::Label::builder()
         .label(format!(
-            "{}\npress enter to confirm",
+            "{}\npress <b>enter</b> to confirm",
             message.as_ref().map(|s| s.as_str()).unwrap_or("confirm?")
         ))
         .valign(Align::Center)
         .halign(Align::Center)
+        .use_markup(true)
         .build();
 
     window.set_child(Some(&label));
